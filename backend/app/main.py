@@ -9,7 +9,7 @@ app = FastAPI(title="Syracuse Conjecture API")
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Update this with your Vercel domain in production
+    allow_origins=["*"],  # This will work with Vercel's domain
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
