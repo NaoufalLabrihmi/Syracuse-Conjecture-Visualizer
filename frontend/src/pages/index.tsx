@@ -52,7 +52,7 @@ export default function Home() {
 
     setLoading(true);
     try {
-      const response = await axios.post<SequenceResponse>('http://localhost:8000/sequence', {
+      const response = await axios.post<SequenceResponse>(`${process.env.NEXT_PUBLIC_API_URL}/sequence`, {
         start_number: Number(number)
       });
       setSequence(response.data);
