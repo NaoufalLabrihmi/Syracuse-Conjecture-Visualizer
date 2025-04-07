@@ -35,11 +35,11 @@ def calculate_syracuse_sequence(n: int) -> List[int]:
         sequence.append(n)
     return sequence
 
-@app.get("/api")
+@app.get("/")
 async def root():
     return {"message": "Welcome to the Syracuse Conjecture API"}
 
-@app.post("/api/sequence", response_model=SequenceResponse)
+@app.post("/sequence", response_model=SequenceResponse)
 async def get_sequence(request: SequenceRequest):
     try:
         sequence = calculate_syracuse_sequence(request.start_number)
@@ -59,7 +59,7 @@ async def get_sequence(request: SequenceRequest):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-@app.get("/api/batch/{start}/{end}")
+@app.get("/batch/{start}/{end}")
 async def get_batch_sequences(start: int, end: int):
     if start < 1 or end < start:
         raise HTTPException(status_code=400, detail="Invalid range")
