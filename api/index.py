@@ -5,7 +5,7 @@ from typing import List, Dict
 import numpy as np
 from mangum import Mangum
 
-app = FastAPI(title="Syracuse Conjecture API")
+app = FastAPI()
 
 # Enable CORS
 app.add_middleware(
@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 class SequenceRequest(BaseModel):
-    start_number: int = Field(..., gt=0, description="Starting number for the sequence")
+    start_number: int = Field(..., gt=0)
 
 class SequenceResponse(BaseModel):
     sequence: List[int]
