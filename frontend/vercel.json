@@ -1,6 +1,8 @@
 {
   "version": 2,
   "framework": "nextjs",
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": ".next",
   "builds": [
     {
       "src": "package.json",
